@@ -1,0 +1,7 @@
+torch==2.5.0
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.13.1
+scikit-learn==1.2.2
+omegaconf==2.3.0
+tqdm==4.67.1
