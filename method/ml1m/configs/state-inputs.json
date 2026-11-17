@@ -1,0 +1,9 @@
+{
+  "runtime": "recommendation",
+  "arguments": {
+    "--generated-dir": "${OUTPUT_ROOT}/generated/states",
+    "--plain-data-dir": "${OUTPUT_ROOT}/recommendation/plain",
+    "--output-dir": "${OUTPUT_ROOT}/recommendation/states",
+    "--all-interactions": "${OUTPUT_ROOT}/splits/all_interactions.jsonl"
+  }
+}

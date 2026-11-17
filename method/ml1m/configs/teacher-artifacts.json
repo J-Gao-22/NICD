@@ -1,0 +1,14 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--state-dir": "${OUTPUT_ROOT}/teacher/states",
+    "--transition-dirs": [
+      "${OUTPUT_ROOT}/teacher/transitions/E1",
+      "${OUTPUT_ROOT}/teacher/transitions/E2",
+      "${OUTPUT_ROOT}/teacher/transitions/E3"
+    ],
+    "--transition-packs": "${OUTPUT_ROOT}/teacher/transition_inputs/transition_packs.jsonl",
+    "--analysis-dir": "${OUTPUT_ROOT}/teacher/transition_inputs/analysis_inputs",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/artifacts"
+  }
+}

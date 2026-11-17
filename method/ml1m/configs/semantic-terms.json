@@ -1,0 +1,8 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--input": "${OUTPUT_ROOT}/profiles/refined.jsonl",
+    "--output": "${OUTPUT_ROOT}/profiles/terms.jsonl",
+    "--report": "${OUTPUT_ROOT}/profiles/terms.json"
+  }
+}

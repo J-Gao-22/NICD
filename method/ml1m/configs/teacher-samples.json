@@ -1,0 +1,10 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--all-interactions": "${OUTPUT_ROOT}/splits/all_interactions.jsonl",
+    "--manifest": "${REPOSITORY_ROOT}/data/manifests/ml1m/teacher_samples.jsonl",
+    "--expected-count": 2000,
+    "--expected-sha256": "6554f83b68c3d8adb2e0b884531a22d2b49112abc62a9e154b6527f2b6e7ad38",
+    "--output": "${OUTPUT_ROOT}/teacher/samples.jsonl"
+  }
+}

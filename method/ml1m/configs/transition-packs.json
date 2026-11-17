@@ -1,0 +1,12 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--analysis-dir": "${OUTPUT_ROOT}/teacher/transition_inputs/analysis_inputs",
+    "--selected-state-nodes": "${OUTPUT_ROOT}/teacher/transition_inputs/selected_state_nodes_c1.jsonl",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/transition_inputs",
+    "--tokenizer": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--prompt": "${PROJECT_ROOT}/prompts/transitions.txt",
+    "--schema": "${PROJECT_ROOT}/schemas/transitions.json",
+    "--phase": "build_packs"
+  }
+}

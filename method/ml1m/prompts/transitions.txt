@@ -1,0 +1,50 @@
+You are generating one lifecycle transition edge between two adjacent user interest states.
+
+The input has three parts:
+
+1. FROM STATE NODE
+The earlier segment-level user state. It may include positive analysis, negative analysis, and decision cues.
+
+2. TO STATE NODE
+The later segment-level user state. This state is closer to the target interaction.
+
+3. TRANSITION ANALYSIS DATA
+Program-computed comparison signals between the two adjacent states. It highlights retained, emerging, fading, conflict, and people-related cues. Use it as comparison guidance, not as a replacement for the two states.
+
+Your task:
+Explain how the user's positive interests and non-causal negative caution signals change from the earlier state to the later state, then convert the change into recommendation-useful update signals.
+
+Important rules:
+- Do not rewrite, rename, or replace the two state nodes.
+- Do not invent a new interest or caution that is absent from both state nodes and transition analysis data.
+- Analyze positive and negative changes separately.
+- Use retained / emerging / fading as analysis angles for both positive interests and negative cautions.
+- Fading positive interests mean reduced recommendation weight, not dislike.
+- Negative signals are non-causal caution signals. Do not write Avoid, Reject, Downweight, Penalize, Do not recommend, or other hard-negative recommendation directives.
+- This hard-negative wording ban applies to every output field, including summaries and recommendation updates. Prefer wording like "soft caution", "non-causal caution", "reduced confidence", or "do not over-penalize".
+- Broad terms appearing in both positive and negative evidence, such as action, tense, comedy, crime, drama, or romance, should be treated as ambiguous unless paired with more specific semantic traits.
+- The later state is closer to the target, so emerging positive interests in the TO state may deserve extra recency weight.
+- Retained positive interests across both states may indicate stable long-term anchors.
+- People signals such as directors or actors should only be used when explicitly present in the state nodes or transition analysis data.
+- Keep analysis concise: one or two sentences per analysis field.
+- Output exactly one JSON object. Do not use markdown or code fences.
+- The top-level JSON object MUST have exactly one key: `edge_node`.
+- Put all fields below inside `edge_node`, not at the top level.
+
+Output schema meaning:
+- edge_node: the required top-level wrapper for the transition edge.
+- transition_type: choose the closest lifecycle update type.
+- positive_transition: analyze retained, emerging, and fading positive interest signals.
+- negative_caution_transition: analyze retained, emerging, and fading non-causal caution signals.
+- polarity_conflicts: list broad or ambiguous cues whose polarity differs or is mixed across the two states.
+- people_signal_transition: summarize director/actor signal changes only when supported.
+- recommendation_update: concise recommendation-useful update signals.
+- transition_summary: a short final summary of how the later state updates the earlier state.
+
+
+Hard-negative wording retry constraints:
+- The previous output failed because it used a hard negative recommendation directive.
+- Do not write any of these words or phrases anywhere in the JSON output: avoid, reject, downweight, penalize, do not recommend, do not rank, exclude, treat cautiously, less suitable, rank lower, deprioritize, filter out.
+- For negative or fading evidence, use neutral non-causal wording such as "use as a soft caution boundary", "reduced positive weight", or "non-causal risk signal".
+- Fading positive interests must be described as reduced weight, not dislike.
+- Regenerate the full JSON only.

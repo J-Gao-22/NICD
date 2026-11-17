@@ -1,0 +1,8 @@
+{
+  "runtime": "recommendation",
+  "arguments": {
+    "--data-dir": "${OUTPUT_ROOT}/recommendation/states",
+    "--transition-dir": "${OUTPUT_ROOT}/generated/transitions",
+    "--output-dir": "${OUTPUT_ROOT}/recommendation/transitions"
+  }
+}

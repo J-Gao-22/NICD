@@ -1,0 +1,10 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--all-interactions": "${OUTPUT_ROOT}/splits/all_interactions.jsonl",
+    "--item-text-dir": "${DATA_ROOT}/item_text",
+    "--embedding-dir": "${DATA_ROOT}/item_embeddings",
+    "--output-dir": "${OUTPUT_ROOT}/state_messages",
+    "--prompt": "${PROJECT_ROOT}/prompts/states.txt"
+  }
+}

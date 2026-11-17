@@ -1,0 +1,23 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--base-model": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--corpus-dir": "${OUTPUT_ROOT}/corpora/states",
+    "--output-dir": "${OUTPUT_ROOT}/generators/states",
+    "--mode": "train",
+    "--max-seq-len": 4096,
+    "--lr": 0.0001,
+    "--epochs": 2,
+    "--batch-size": 1,
+    "--grad-accum": 8,
+    "--lora-rank": 16,
+    "--lora-alpha": 32,
+    "--lora-dropout": 0.05,
+    "--target-modules": "q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj",
+    "--dtype": "bf16",
+    "--seed": 42,
+    "--max-steps": null,
+    "--eval-max-new-tokens": 768,
+    "--smoke-eval-limit": 5
+  }
+}

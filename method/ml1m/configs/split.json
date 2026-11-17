@@ -1,0 +1,8 @@
+{
+  "runtime": "recommendation",
+  "arguments": {
+    "--ratings": "${DATA_ROOT}/raw/ratings.dat",
+    "--movies": "${DATA_ROOT}/raw/movies.dat",
+    "--outdir": "${OUTPUT_ROOT}/splits"
+  }
+}

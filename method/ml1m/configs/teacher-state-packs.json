@@ -1,0 +1,10 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--packs": [
+      "${DATA_ROOT}/teacher/state_packs.jsonl"
+    ],
+    "--sample-list": "${OUTPUT_ROOT}/teacher/samples.jsonl",
+    "--output": "${OUTPUT_ROOT}/teacher/state_tasks.jsonl"
+  }
+}

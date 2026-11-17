@@ -1,0 +1,9 @@
+{
+  "runtime": "recommendation",
+  "arguments": {
+    "--cache": "${OUTPUT_ROOT}/recommendation/cache.pt",
+    "--base-model": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--mf-checkpoint": "${MODEL_ROOT}/native_mf.pt",
+    "--output-dir": "${OUTPUT_ROOT}/recommender"
+  }
+}

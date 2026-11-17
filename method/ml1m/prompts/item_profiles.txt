@@ -1,0 +1,74 @@
+# ML1M Item Profile Prompt
+
+You are building an item profile cache for a movie recommender. Convert one MovieLens-1M movie record into recommendation-oriented semantic signals.
+
+Evidence priority, from strongest to weakest:
+
+1. overview
+2. genres
+3. title/year
+4. director
+5. actors
+6. writer
+7. production_countries
+8. original_language
+
+Use higher-priority evidence first. Lower-priority metadata may support or disambiguate the profile, but it should not dominate the result.
+
+Important rules:
+
+* Do not merely summarize metadata.
+* Do not use movie title, release year, director names, actor names, writer names, country, language, popularity, vote_average, or ratings as standalone interest tags.
+* Ignore popularity and rating-related fields; they are not semantic preference evidence.
+* Convert names and metadata into semantic viewing preferences only when justified by overview or genre evidence.
+* Prefer recommendation-useful concepts: themes, premise, conflict type, setting, mood, pacing, narrative structure, emotional appeal, audience taste, and distinctive story keywords.
+* semantic_tags must answer why a user may like this type of movie. Use specific recommendation phrases such as friendship reconciliation, toy rivalry, magical board game adventure, survival fantasy, neighbor rivalry, late-life romance, or domestic conflict comedy.
+* Do not put surface genres, isolated tones, isolated proper nouns, release facts, or single generic words in semantic_tags.
+* Do not use magical, supernatural, survival, mystery, thriller, or suspense tags unless the overview or genres clearly support them.
+* semantic_tags should contain 5-8 clean, non-overlapping recommendation tags. Avoid near-duplicate variants such as friendship plus friendship reconciliation, or rivalry plus toy rivalry.
+* Prefer specific tags over generic or marketing-like tags. Avoid family fun, childhood wonder, fantasy escapade, adventure-seeking, family-friendly, relatable characters, or humorous situations unless made more specific.
+* Avoid generic labels such as movie, film, story, popular, classic, entertaining, American film, English-language film, or high-rated, including compound phrases like classic animation.
+* Keep proper nouns separate from semantic evidence. Character names, named places, room names, and concrete named objects belong in named_entities, not semantic_tags.
+* story_keywords should favor semantic setting/object/situation phrases such as living toys, child's bedroom, enchanted board game, neighborhood feud, or family wedding. Avoid character names when a semantic phrase is available.
+* Avoid repeating the same concept across multiple fields unless it plays different semantic roles.
+* Do not force every field to be full. If a field is weakly supported, use fewer entries.
+* For narrative_style, only use styles directly supported by the overview or genres. Do not infer labels such as satire, ensemble drama, noir, slow-burn, or psychological thriller unless the evidence clearly supports them.
+* For emotional_tone, combine the overview with genres. Do not turn comedy conflict words such as feud, rivalry, or argument into suspense-like tension unless the genre and premise support it.
+* For comedy or romance conflict, prefer tones such as lighthearted, comic, romantic, playful, bittersweet, or playfully confrontational when supported.
+* Keep list entries short, specific, and non-duplicative.
+* Use concise noun phrases for list entries.
+* Each list should contain 3-6 entries when evidence is sufficient; use fewer entries if evidence is weak.
+* If evidence is missing or weak, produce conservative fields instead of inventing details.
+* Return only strict JSON. No markdown, no comments, no prose outside JSON.
+
+Output schema:
+{
+  "surface_genres": [],
+  "core_themes": [],
+  "narrative_style": [],
+  "emotional_tone": [],
+  "story_keywords": [],
+  "audience_preference_facets": [],
+  "semantic_tags": [],
+  "named_entities": [],
+  "recommendation_profile": "",
+  "evidence_used": [],
+  "profile_confidence": ""
+}
+
+Field guidance:
+
+* surface_genres: normalized genre/subgenre labels visible from genres and overview.
+* core_themes: deeper themes or conflicts, such as redemption, family tension, survival, rivalry, coming of age.
+* narrative_style: storytelling or structural style directly evidenced by the input, such as road adventure, buddy comedy, mystery-driven plot, domestic conflict comedy, survival quest.
+* emotional_tone: affective experience, such as warm, tense, bittersweet, darkly comic, uplifting, melancholic.
+* story_keywords: compact premise, setting, object, or situation keywords useful for retrieval; prefer semantic phrases over proper names.
+* audience_preference_facets: short phrases describing why a user might like this item, not demographic labels.
+* semantic_tags: 4-8 high-quality recommendation semantics for downstream interest aggregation. They should be specific phrases, not unigrams, surface genres, or proper nouns.
+* named_entities: proper nouns and concrete named entities useful for audit or item-local context, such as character names, named places, organizations, or iconic named objects.
+  Do not include ordinary descriptive phrases, animal/object descriptions, roles, or settings such as giant rhinoceroses, evil monkeys, sultry Italian divorcée, local bait shop, restaurant, or child's bedroom.
+* recommendation_profile: one concise sentence describing the movie as a recommendation target.
+* evidence_used: list only the source fields that directly supported the generated content, selected from ["overview", "genres", "title", "year", "director", "actors", "writer", "production_countries", "original_language"]. Do not list a field just because it was present. For most records this should be only ["overview", "genres"], optionally plus "title" if the title itself contributes meaning.
+* profile_confidence: one of ["high", "medium", "low"], based on how specific and sufficient the provided evidence is.
+
+Now process the following movie record according to the evidence priority and output schema.

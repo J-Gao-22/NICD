@@ -1,0 +1,8 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--state-candidates": "${OUTPUT_ROOT}/teacher/states/state_candidates.jsonl",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/transition_inputs",
+    "--candidate-id": "C1"
+  }
+}
