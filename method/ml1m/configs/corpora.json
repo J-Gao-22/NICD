@@ -1,0 +1,16 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--source-dir": "${OUTPUT_ROOT}/teacher/artifacts",
+    "--judge-dir": "${OUTPUT_ROOT}/teacher/judge",
+    "--transition-repair-dir": "${OUTPUT_ROOT}/teacher/transition_repair",
+    "--state-repair-dir": "${OUTPUT_ROOT}/teacher/state_repair",
+    "--state-judgment-dir": "${OUTPUT_ROOT}/teacher/state_repair/judged_repairs",
+    "--state-output-dir": "${OUTPUT_ROOT}/corpora/states",
+    "--transition-output-dir": "${OUTPUT_ROOT}/corpora/transitions",
+    "--state-prompt": "${PROJECT_ROOT}/prompts/states.txt",
+    "--state-packs": [
+      "${OUTPUT_ROOT}/teacher/states/state_packs.jsonl"
+    ]
+  }
+}

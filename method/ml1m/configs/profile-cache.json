@@ -1,0 +1,14 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--profile-jsonl": "${OUTPUT_ROOT}/profiles/generated.jsonl",
+    "--keyword-tag-jsonl": "${OUTPUT_ROOT}/profiles/keywords.jsonl",
+    "--output-jsonl": "${OUTPUT_ROOT}/profiles/cache.jsonl",
+    "--quality-report-json": "${OUTPUT_ROOT}/profiles/quality.json",
+    "--repair-candidates-jsonl": "${OUTPUT_ROOT}/profiles/repair.jsonl",
+    "--min-tags": 3,
+    "--max-tags": 7,
+    "--max-semantic-keywords": 12,
+    "--similarity-threshold": 0.72
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["edge_node"],
+  "properties": {
+    "edge_node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from_state_id", "to_state_id", "transition_label", "transition_type", "positive_transition", "negative_caution_transition", "polarity_conflicts", "author_signal_transition", "recommendation_update", "transition_summary"],
+      "properties": {
+        "from_state_id": {"type": "string"},
+        "to_state_id": {"type": "string"},
+        "transition_label": {"type": "string", "maxLength": 120},
+        "transition_type": {"type": "string", "enum": ["positive_continuity", "positive_shift", "caution_emergence", "caution_relief", "polarity_conflict", "mixed_update"]},
+        "positive_transition": {"type": "object", "additionalProperties": false, "required": ["analysis", "retained", "emerging", "fading"], "properties": {
+          "analysis": {"type": "string", "maxLength": 420},
+          "retained": {"type": "array", "maxItems": 4, "items": {"$ref": "#/definitions/positive_signal"}},
+          "emerging": {"type": "array", "maxItems": 4, "items": {"$ref": "#/definitions/positive_signal"}},
+          "fading": {"type": "array", "maxItems": 4, "items": {"$ref": "#/definitions/fading_signal"}}
+        }},
+        "negative_caution_transition": {"type": "object", "additionalProperties": false, "required": ["analysis", "retained", "emerging", "fading"], "properties": {
+          "analysis": {"type": "string", "maxLength": 420},
+          "retained": {"type": "array", "maxItems": 3, "items": {"$ref": "#/definitions/negative_signal"}},
+          "emerging": {"type": "array", "maxItems": 3, "items": {"$ref": "#/definitions/negative_signal"}},
+          "fading": {"type": "array", "maxItems": 3, "items": {"$ref": "#/definitions/negative_signal"}}
+        }},
+        "polarity_conflicts": {"type": "array", "maxItems": 4, "items": {"type": "object", "additionalProperties": false, "required": ["signal", "conflict", "recommendation_handling"], "properties": {
+          "signal": {"type": "string", "maxLength": 80},
+          "conflict": {"type": "string", "maxLength": 220},
+          "recommendation_handling": {"type": "string", "enum": ["treat_as_ambiguous_broad_signal", "use_only_with_specific_positive_context", "use_only_as_soft_caution", "ignore_as_non_discriminative"]}
+        }}},
+        "author_signal_transition": {"type": "object", "additionalProperties": false, "required": ["analysis", "retained_positive_authors", "emerging_positive_authors", "negative_caution_authors"], "properties": {
+          "analysis": {"type": "string", "maxLength": 300},
+          "retained_positive_authors": {"type": "array", "maxItems": 3, "items": {"type": "string", "maxLength": 100}},
+          "emerging_positive_authors": {"type": "array", "maxItems": 3, "items": {"type": "string", "maxLength": 100}},
+          "negative_caution_authors": {"type": "array", "maxItems": 3, "items": {"type": "string", "maxLength": 100}}
+        }},
+        "recommendation_update": {"type": "object", "additionalProperties": false, "required": ["long_term_positive_anchors", "recent_positive_focus", "soft_caution_signals", "do_not_over_penalize"], "properties": {
+          "long_term_positive_anchors": {"type": "array", "maxItems": 5, "items": {"type": "string", "maxLength": 80}},
+          "recent_positive_focus": {"type": "array", "maxItems": 5, "items": {"type": "string", "maxLength": 80}},
+          "soft_caution_signals": {"type": "array", "maxItems": 5, "items": {"type": "string", "maxLength": 80}},
+          "do_not_over_penalize": {"type": "array", "maxItems": 5, "items": {"type": "string", "maxLength": 80}}
+        }},
+        "transition_summary": {"type": "string", "maxLength": 520}
+      }
+    }
+  },
+  "definitions": {
+    "positive_signal": {"type": "object", "additionalProperties": false, "required": ["signal", "why"], "properties": {"signal": {"type": "string", "maxLength": 80}, "why": {"type": "string", "maxLength": 220}}},
+    "fading_signal": {"type": "object", "additionalProperties": false, "required": ["signal", "why", "interpretation"], "properties": {"signal": {"type": "string", "maxLength": 80}, "why": {"type": "string", "maxLength": 220}, "interpretation": {"type": "string", "enum": ["reduced_weight_not_negative"]}}},
+    "negative_signal": {"type": "object", "additionalProperties": false, "required": ["signal", "why", "not_causal"], "properties": {"signal": {"type": "string", "maxLength": 80}, "why": {"type": "string", "maxLength": 220}, "not_causal": {"type": "boolean", "enum": [true]}}}
+  }
+}

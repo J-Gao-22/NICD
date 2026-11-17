@@ -1,0 +1,11 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--movie-side-csv": "${DATA_ROOT}/movie_side.csv",
+    "--item-universe-json": "${DATA_ROOT}/item_universe.json",
+    "--prompt-template": "${PROJECT_ROOT}/prompts/item_profiles.txt",
+    "--output-jsonl": "${OUTPUT_ROOT}/profiles/prompts.jsonl",
+    "--take": 0,
+    "--max-overview-chars": 1600
+  }
+}

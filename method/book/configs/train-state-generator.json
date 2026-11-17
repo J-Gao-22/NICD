@@ -1,0 +1,13 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--base-model": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--corpus-dir": "${OUTPUT_ROOT}/corpora/states",
+    "--output-dir": "${OUTPUT_ROOT}/generators/states",
+    "--mode": "train",
+    "--lr": 0.00005,
+    "--warmup-steps": 50,
+    "--grad-clip": 1.0,
+    "--max-skipped-nonfinite-windows": 0
+  }
+}

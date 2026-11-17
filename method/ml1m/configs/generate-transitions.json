@@ -1,0 +1,21 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--generated-dir": "${OUTPUT_ROOT}/generated/states",
+    "--edge-output-dir": "${OUTPUT_ROOT}/generated/transitions",
+    "--base-model": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--lora": "${OUTPUT_ROOT}/generators/transitions",
+    "--splits": [
+      "test"
+    ],
+    "--batch-size": 256,
+    "--max-num-seqs": 128,
+    "--gpu-memory-utilization": 0.9,
+    "--max-model-len": 4096,
+    "--max-tokens": 512,
+    "--max-attempts": 2,
+    "--report-every": 1024,
+    "--limit": 0,
+    "--structured-mode": "schema"
+  }
+}

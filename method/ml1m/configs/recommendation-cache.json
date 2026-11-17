@@ -1,0 +1,9 @@
+{
+  "runtime": "recommendation",
+  "arguments": {
+    "--data-dir": "${OUTPUT_ROOT}/recommendation/states",
+    "--transition-dir": "${OUTPUT_ROOT}/recommendation/transitions",
+    "--base-model": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--output": "${OUTPUT_ROOT}/recommendation/cache.pt"
+  }
+}

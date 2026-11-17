@@ -1,0 +1,14 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--input": "${OUTPUT_ROOT}/item_text/item_text_balanced_semantic.jsonl",
+    "--model": "${MODEL_ROOT}/gte-Qwen2-1.5B-instruct",
+    "--outdir": "${OUTPUT_ROOT}/item_embeddings",
+    "--batch-size": 8,
+    "--max-length": 1024,
+    "--pooling": "last",
+    "--limit": 0,
+    "--device": "cuda",
+    "--dtype": "float16"
+  }
+}

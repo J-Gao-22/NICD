@@ -1,0 +1,9 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--metadata": "${DATA_ROOT}/movie_side.csv",
+    "--llm-profile": "${OUTPUT_ROOT}/profiles/cache.jsonl",
+    "--output": "${OUTPUT_ROOT}/profiles/combined.jsonl",
+    "--report": "${OUTPUT_ROOT}/profiles/combined.json"
+  }
+}

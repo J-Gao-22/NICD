@@ -1,0 +1,10 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--source-dir": "${OUTPUT_ROOT}/teacher/artifacts",
+    "--judge-dir": "${OUTPUT_ROOT}/teacher/judge",
+    "--transition-repair-dir": "${OUTPUT_ROOT}/teacher/transition_repair",
+    "--state-repair-dir": "${OUTPUT_ROOT}/teacher/state_repair",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/state_repair/judged_repairs"
+  }
+}

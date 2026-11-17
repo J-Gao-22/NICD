@@ -1,0 +1,9 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--profile-jsonl": "${OUTPUT_ROOT}/profiles/generated.jsonl",
+    "--output-jsonl": "${OUTPUT_ROOT}/profiles/keywords.jsonl",
+    "--max-keywords": 12,
+    "--max-tags": 8
+  }
+}

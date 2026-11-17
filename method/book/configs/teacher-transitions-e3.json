@@ -1,0 +1,17 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--packs": "${OUTPUT_ROOT}/teacher/transitions/transition_packs.jsonl",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/transitions/E3",
+    "--prompt": "${PROJECT_ROOT}/prompts/transitions_e3.txt",
+    "--schema": "${PROJECT_ROOT}/schemas/transitions.json",
+    "--generation-variant": "E3",
+    "--seed": 20260727,
+    "--parallel": 10,
+    "--temperature": 0.2,
+    "--max-tokens": 1536,
+    "--timeout": 300,
+    "--max-attempts": 3,
+    "--top-logprobs": 5
+  }
+}

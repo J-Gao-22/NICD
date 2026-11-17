@@ -1,0 +1,11 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--all-interactions": "${DATA_ROOT}/all_interactions.jsonl",
+    "--canonical-profile": "${DATA_ROOT}/item_profiles.jsonl",
+    "--embedding-dir": "${DATA_ROOT}/item_embeddings",
+    "--sft-reference": "${OUTPUT_ROOT}/corpora/states/segment_interest_node_sft_train.jsonl",
+    "--tokenizer": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--output-dir": "${OUTPUT_ROOT}/state_messages"
+  }
+}

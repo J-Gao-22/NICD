@@ -1,0 +1,15 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--prompt-jsonl": "${OUTPUT_ROOT}/profiles/prompts.jsonl",
+    "--output-jsonl": "${OUTPUT_ROOT}/profiles/responses.jsonl",
+    "--final-jsonl": "${OUTPUT_ROOT}/profiles/generated.jsonl",
+    "--model-dir": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--device": "cuda:0",
+    "--torch-dtype": "bfloat16",
+    "--limit": 0,
+    "--batch-size": 1,
+    "--max-input-tokens": 4096,
+    "--max-new-tokens": 384
+  }
+}

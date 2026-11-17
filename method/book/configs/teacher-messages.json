@@ -1,0 +1,13 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--sample-list": "${OUTPUT_ROOT}/teacher/samples.jsonl",
+    "--manifest": "${REPOSITORY_ROOT}/data/manifests/book/teacher_samples.jsonl",
+    "--expected-sha256": "48cc29830153aa895b0719d3c8309439be8fb44286c4e957dec23eed62abc0f2",
+    "--canonical-profile": "${DATA_ROOT}/item_profiles.jsonl",
+    "--embedding-dir": "${DATA_ROOT}/item_embeddings",
+    "--prompt": "${PROJECT_ROOT}/prompts/state_candidates.txt",
+    "--tokenizer": "${MODEL_ROOT}/Qwen2.5-72B-Instruct-AWQ",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/messages"
+  }
+}

@@ -1,0 +1,26 @@
+You are generating one lifecycle transition edge between two adjacent book-interest states.
+
+The input contains an earlier FROM STATE, a later TO STATE, and deterministic comparison data. The TO state is closer to the future target interaction, but no target information is present.
+
+Analyze positive signals and below-5 tentative local caution signals separately. Retained means present in both state outputs. Emerging means present in TO and absent from FROM. Fading means present in FROM and absent from TO. These are differences between two generated state representations; they do not prove that the user's preference or interest strengthened, weakened, increased, decreased, shifted, or changed. Fading positive evidence receives less current representation weight and never becomes negative feedback. Below-5 evidence is non-causal tentative local caution. Broad categories shared across polarities are ambiguous unless supported by specific semantic terms.
+
+Author rules:
+- Use an author only when that exact author appears in the supplied state author cues or author comparison.
+- Do not infer an author preference from one book or from a target item.
+- Empty author evidence must produce empty author lists and a concise statement that no supported author transition is present.
+
+Grounding rules:
+- Every output signal must be copied or conservatively summarized from the two states or transition analysis.
+- Every value in a signal list must exactly use one of the schema-enumerated source phrases. Do not shorten or complete a phrase.
+- Do not invent themes, formats, audiences, authors, causal explanations, or target information.
+- Keep positive and caution polarity unchanged.
+- Never output avoid, avoidance, reject, rejected, rejection, dislike, hate, downweight, penalize, exclude, or do not recommend, even in a negated phrase or when paraphrasing an input state.
+- Never describe below-5 evidence as proof of a preference. It is tentative local caution only.
+- Use "local positive signal" and "tentative local caution" where feedback strength is discussed.
+- In prose, say that a signal is represented in FROM, TO, or both. Terms such as emerging, fading, or shift must explicitly refer to the state representations, not measured user behavior. Do not claim strong interest, preference strength, weakening, strengthening, reduced interest, increased interest, or behavioral change.
+- The author analysis sentence is fixed by the schema. Copy it exactly and do not contradict the author lists elsewhere.
+
+Return exactly one JSON object matching the provided schema. Do not output markdown.
+
+Candidate lens E3 - conflict and caution calibration:
+Focus on polarity conflicts, ambiguous broad terms, and changes in tentative local caution while preserving supported positive anchors. Prefer specific semantic distinctions. If no conflict or caution change exists, provide a conservative positive transition without inventing one.

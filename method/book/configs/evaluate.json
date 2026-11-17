@@ -1,0 +1,12 @@
+{
+  "runtime": "recommendation",
+  "arguments": {
+    "--cache": "${OUTPUT_ROOT}/recommendation/cache.pt",
+    "--base-model": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--adapter": "${OUTPUT_ROOT}/recommender/stage1/lora",
+    "--collaborative-mf": "${MODEL_ROOT}/collaborative_mf.pth",
+    "--projector-dir": "${OUTPUT_ROOT}/collaborative",
+    "--split": "test",
+    "--output-dir": "${OUTPUT_ROOT}/evaluation/test"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--output-dir": "${OUTPUT_ROOT}/teacher/judge",
+    "--endpoint": "http://127.0.0.1:8010/v1",
+    "--model": "Qwen2.5-14B-Instruct"
+  }
+}

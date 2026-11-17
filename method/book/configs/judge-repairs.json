@@ -1,0 +1,12 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--phase": "run",
+    "--state-candidates": "${OUTPUT_ROOT}/teacher/states/state_candidates.jsonl.gz",
+    "--transition-dir": "${OUTPUT_ROOT}/teacher/transitions",
+    "--judge-dir": "${OUTPUT_ROOT}/teacher/judge",
+    "--transition-repair-dir": "${OUTPUT_ROOT}/teacher/transition_repair/full",
+    "--state-repair-dir": "${OUTPUT_ROOT}/teacher/state_repair",
+    "--judge-endpoint": "http://127.0.0.1:8011/v1/chat/completions"
+  }
+}

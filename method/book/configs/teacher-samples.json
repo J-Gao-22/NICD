@@ -1,0 +1,9 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--all-interactions": "${DATA_ROOT}/all_interactions.jsonl",
+    "--manifest": "${REPOSITORY_ROOT}/data/manifests/book/teacher_samples.jsonl",
+    "--expected-sha256": "48cc29830153aa895b0719d3c8309439be8fb44286c4e957dec23eed62abc0f2",
+    "--output": "${OUTPUT_ROOT}/teacher/samples.jsonl"
+  }
+}

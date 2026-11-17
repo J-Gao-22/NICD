@@ -1,0 +1,14 @@
+{
+  "runtime": "recommendation",
+  "arguments": {
+    "--projector-dir": "${OUTPUT_ROOT}/collaborative",
+    "--split": "test",
+    "--cache": "${OUTPUT_ROOT}/recommendation/cache.pt",
+    "--base-model": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--adapter": "${OUTPUT_ROOT}/recommender/adapter",
+    "--native-mf": "${MODEL_ROOT}/native_mf.pt",
+    "--collaborative-mf": "${MODEL_ROOT}/collaborative_mf.pth",
+    "--output-dir": "${OUTPUT_ROOT}/evaluation/test",
+    "--device": "cuda"
+  }
+}

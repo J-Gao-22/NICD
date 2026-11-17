@@ -1,0 +1,16 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--prompt": "${PROJECT_ROOT}/prompts/state_candidates.txt",
+    "--pack-tasks": "${OUTPUT_ROOT}/teacher/state_tasks.jsonl",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/states",
+    "--endpoint": "http://127.0.0.1:8010/v1",
+    "--model": "Qwen2.5-72B-Instruct-AWQ",
+    "--max-output-tokens": 768,
+    "--timeout": 300,
+    "--workers": 10,
+    "--max-attempts": 2,
+    "--logprobs": true,
+    "--top-logprobs": 5
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--state-candidates": "${OUTPUT_ROOT}/teacher/states/state_candidates.jsonl.gz",
+    "--judge-dir": "${OUTPUT_ROOT}/teacher/judge",
+    "--transition-repair-dir": "${OUTPUT_ROOT}/teacher/transition_repair/full",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/state_repair",
+    "--tokenizer": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--prompt": "${PROJECT_ROOT}/prompts/transitions_e1.txt",
+    "--schema": "${PROJECT_ROOT}/schemas/transitions.json"
+  }
+}

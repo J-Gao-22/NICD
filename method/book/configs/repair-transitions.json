@@ -1,0 +1,10 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--phase": "run",
+    "--transition-dir": "${OUTPUT_ROOT}/teacher/transitions",
+    "--judge-dir": "${OUTPUT_ROOT}/teacher/judge",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/transition_repair",
+    "--judge-endpoint": "http://127.0.0.1:8011/v1/chat/completions"
+  }
+}

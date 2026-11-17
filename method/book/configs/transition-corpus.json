@@ -1,0 +1,17 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--selected-states": "${OUTPUT_ROOT}/corpora/states/selected_state_nodes.jsonl",
+    "--edge-repair-results": "${OUTPUT_ROOT}/teacher/transition_repair/full/repair_attempts.jsonl",
+    "--state-repair-results": "${OUTPUT_ROOT}/teacher/state_repair/judged_states/state_repair_attempts.jsonl",
+    "--base-packs": "${OUTPUT_ROOT}/teacher/transitions/transition_packs.jsonl",
+    "--regenerated-packs": "${OUTPUT_ROOT}/teacher/state_repair/repair_transition_packs.jsonl",
+    "--base-candidate": [
+      "${OUTPUT_ROOT}/teacher/transitions/E1/transition_candidates.jsonl",
+      "${OUTPUT_ROOT}/teacher/transitions/E2/transition_candidates.jsonl",
+      "${OUTPUT_ROOT}/teacher/transitions/E3/transition_candidates.jsonl"
+    ],
+    "--regenerated-candidates": "${OUTPUT_ROOT}/teacher/state_repair/transitions/transition_candidates.jsonl",
+    "--output-dir": "${OUTPUT_ROOT}/corpora/transitions"
+  }
+}

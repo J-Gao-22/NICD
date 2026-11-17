@@ -1,0 +1,9 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--state-candidates": "${OUTPUT_ROOT}/teacher/states/state_candidates.jsonl.gz",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/transitions",
+    "--tokenizer": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--schema": "${PROJECT_ROOT}/schemas/transitions.json"
+  }
+}

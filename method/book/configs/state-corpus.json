@@ -1,0 +1,12 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--baseline": "${OUTPUT_ROOT}/teacher/judge/judge_results.jsonl",
+    "--transition-repair-dir": "${OUTPUT_ROOT}/teacher/transition_repair/full",
+    "--state-repair-dir": "${OUTPUT_ROOT}/teacher/state_repair/judged_states",
+    "--selected-states": "${OUTPUT_ROOT}/teacher/transitions/selected_state_nodes.jsonl",
+    "--state-candidates": "${OUTPUT_ROOT}/teacher/states/state_candidates.jsonl.gz",
+    "--state-messages": "${OUTPUT_ROOT}/teacher/messages/state_messages.jsonl",
+    "--output-dir": "${OUTPUT_ROOT}/corpora/states"
+  }
+}

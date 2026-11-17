@@ -1,0 +1,14 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--messages-file": "${OUTPUT_ROOT}/teacher/messages/state_messages.jsonl",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/states",
+    "--workers": 10,
+    "--max-attempts": 4,
+    "--max-output-tokens": 832,
+    "--max-model-len": 5120,
+    "--top-logprobs": 5,
+    "--resume-skip-existing": true,
+    "--gzip-output": true
+  }
+}

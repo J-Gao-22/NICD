@@ -1,0 +1,15 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--all-interactions": "${DATA_ROOT}/all_interactions.jsonl",
+    "--canonical-profile": "${DATA_ROOT}/item_profiles.jsonl",
+    "--embedding-dir": "${DATA_ROOT}/item_embeddings",
+    "--sft-reference": "${OUTPUT_ROOT}/corpora/states/segment_interest_node_sft_train.jsonl",
+    "--output-dir": "${OUTPUT_ROOT}/generated/states",
+    "--base-model": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--lora": "${OUTPUT_ROOT}/generators/states",
+    "--batch-size": 192,
+    "--max-num-seqs": 192,
+    "--max-num-batched-tokens": 32768
+  }
+}

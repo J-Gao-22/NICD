@@ -1,0 +1,10 @@
+{
+  "runtime": "recommendation",
+  "arguments": {
+    "--data-dir": "${OUTPUT_ROOT}/splits",
+    "--cache": "${DATA_ROOT}/semantic_cache.jsonl",
+    "--compact": "${DATA_ROOT}/item_text/item_text_semantic_compact.jsonl",
+    "--balanced": "${DATA_ROOT}/item_text/item_text_balanced_semantic.jsonl",
+    "--output-dir": "${OUTPUT_ROOT}/recommendation/plain"
+  }
+}

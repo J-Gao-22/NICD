@@ -1,0 +1,12 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--all-interactions": "${DATA_ROOT}/all_interactions.jsonl",
+    "--canonical-profile": "${DATA_ROOT}/item_profiles.jsonl",
+    "--state-dirs": [
+      "${OUTPUT_ROOT}/generated/states"
+    ],
+    "--output-dir": "${OUTPUT_ROOT}/recommendation/inputs",
+    "--limit-per-split": 0
+  }
+}

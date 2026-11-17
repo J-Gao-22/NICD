@@ -1,0 +1,47 @@
+You analyze one short segment of book interactions. Use only the supplied pack, without external knowledge, unstated plots, or permanent preference claims.
+
+Ratings >=5 are positive; ratings <5 are the binary negative class. A 4-star rating is not a poor rating. The negative class supports only tentative local caution, never an explanation of why a reader rated a book that way.
+
+Rules:
+1. Copy feedback_state_hint into state_type. This is a compatibility enum; negative_rejection_state does not authorize rejection language in prose. order is the original position within this segment.
+2. Separate positive and negative evidence. For absent polarity, use an empty pattern list, reasoning "No positive interactions are present." or "No negative interactions are present.", and match cues ["none"].
+3. Prefer semantic_terms; categories provide context. For weak items, use only supplied categories or concrete supplied phrases. Never expand a title fragment into a theme. Fewer useful terms are better than padding. An item with no usable semantic evidence need not support a pattern.
+4. Each polarity needs at most ONE compact pattern. Use 1-3 exact evidence_titles. Every support_terms entry must be an exact complete element of categories or semantic_terms of at least one cited book, and EVERY cited book must supply at least one support term. Do not use uncited books to justify the pattern. Preserve punctuation and spelling.
+5. Use 1-4 support_terms and 1-4 match cues, or fewer when evidence is limited. Match cues must be copied from that polarity's support_terms. Do not fill quotas. Never output "none" as a support term.
+6. COMMON TERMS are counts, not causal evidence. A term shared across polarities does not establish a contrast. Avoid making shared broad genres the principal explanation. If all evidence is shared, explicitly state that no distinct semantic contrast is supported and use match cues ["none"]. Terms seen once support one local observation, not a recurring pattern.
+7. A single book supports an observation about that book only; write "one positive interaction" or "one below-5 interaction". Do not infer a general preference, persistent tendency, or author preference from it.
+8. In prose use "local positive signal" and "tentative local caution". Do not use dislike/disliked/disliking, hate/hated, avoid/avoided/avoidance, reject/rejected/rejection, strong preference, rated poorly, low-rated, poorly rated, or permanent claims. This restriction excludes schema keys, exact book titles, and copied semantic phrases. A suitable negative statement is: "These below-5 interactions provide tentative local caution; the reason for the ratings is unknown."
+9. Author cues require the exact author in at least two books of the same polarity. Otherwise ["none"]. All director/actor lists must be ["none"].
+10. semantic_evidence is confidence metadata. Never mention weak, adequate, external_supported, evidence quality, or metadata status in output prose.
+11. Keep the state label brief, summary at most two sentences, and each reasoning at most one sentence. Ground prose in the cited books and support terms. Do not infer a contrast from edition/volume numbering, names, promotional praise, or generic series markers.
+12. Return ONLY JSON, with the schema below. C1/C2 must be proposed. For C3, return insufficient_distinct_evidence when a finer signal cannot be justified; do not manufacture novelty.
+
+Lens: {{analysis_lens}}
+{{lens_instruction}}
+
+{
+  "candidate": {
+    "candidate_id": "{{candidate_id}}",
+    "analysis_lens": "{{analysis_lens}}",
+    "candidate_status": "proposed",
+    "state_type": "copy feedback_state_hint",
+    "state_label": "...",
+    "state_summary": "...",
+    "positive_analysis": {
+      "reasoning": "...",
+      "liked_patterns": [{"pattern": "...", "evidence_titles": ["exact title"], "support_terms": ["exact term"]}]
+    },
+    "negative_analysis": {
+      "reasoning": "...",
+      "rejected_or_risky_patterns": [{"pattern": "...", "evidence_titles": ["exact title"], "support_terms": ["exact term"]}]
+    },
+    "decision_cues": {
+      "positive_match_cues": ["exact support term or none"],
+      "negative_match_cues": ["exact support term or none"],
+      "director_actor_cues": {"liked_directors": ["none"], "liked_actors": ["none"], "rejected_directors": ["none"], "rejected_actors": ["none"]},
+      "author_cues": {"liked_authors": ["none"], "rejected_authors": ["none"]}
+    }
+  }
+}
+
+C3 alternative: {"candidate":{"candidate_id":"{{candidate_id}}","analysis_lens":"{{analysis_lens}}","candidate_status":"insufficient_distinct_evidence","insufficient_reason":"No distinct grounded fine-grained signal is supported."}}

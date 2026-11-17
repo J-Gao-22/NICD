@@ -1,0 +1,11 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--phase": "run",
+    "--sample-list": "${OUTPUT_ROOT}/teacher/samples.jsonl",
+    "--canonical-profile": "${DATA_ROOT}/item_profiles.jsonl",
+    "--transition-dir": "${OUTPUT_ROOT}/teacher/transitions",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/judge",
+    "--judge-endpoint": "http://127.0.0.1:8011/v1/chat/completions"
+  }
+}

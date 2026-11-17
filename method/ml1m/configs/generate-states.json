@@ -1,0 +1,17 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--message-dir": "${OUTPUT_ROOT}/state_messages",
+    "--output-dir": "${OUTPUT_ROOT}/generated/states",
+    "--base-model": "${MODEL_ROOT}/Qwen2.5-7B-Instruct",
+    "--lora": "${OUTPUT_ROOT}/generators/states",
+    "--splits": "train,valid,test",
+    "--batch-size": 256,
+    "--max-tokens": 768,
+    "--max-model-len": 4096,
+    "--gpu-memory-utilization": 0.92,
+    "--max-num-seqs": 128,
+    "--report-every": 2048,
+    "--limit": 0
+  }
+}

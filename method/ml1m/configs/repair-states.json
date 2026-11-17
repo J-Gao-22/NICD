@@ -1,0 +1,12 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--source-dir": "${OUTPUT_ROOT}/teacher/artifacts",
+    "--judge-dir": "${OUTPUT_ROOT}/teacher/judge",
+    "--transition-repair-dir": "${OUTPUT_ROOT}/teacher/transition_repair",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/state_repair",
+    "--prompt": "${PROJECT_ROOT}/prompts/transitions.txt",
+    "--schema": "${PROJECT_ROOT}/schemas/transitions.json",
+    "--tokenizer": "${MODEL_ROOT}/Qwen2.5-7B-Instruct"
+  }
+}

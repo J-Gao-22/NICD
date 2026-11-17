@@ -1,0 +1,10 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--sample-list": "${OUTPUT_ROOT}/teacher/samples.jsonl",
+    "--source-dir": "${OUTPUT_ROOT}/teacher/artifacts",
+    "--item-text-dir": "${DATA_ROOT}/item_text",
+    "--output-dir": "${OUTPUT_ROOT}/teacher/judge",
+    "--prompt": "${PROJECT_ROOT}/prompts/judge.txt"
+  }
+}

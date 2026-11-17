@@ -1,0 +1,8 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--input": "${OUTPUT_ROOT}/profiles/terms.jsonl",
+    "--output": "${OUTPUT_ROOT}/profiles/deduplicated.jsonl",
+    "--report": "${OUTPUT_ROOT}/profiles/deduplicated.json"
+  }
+}

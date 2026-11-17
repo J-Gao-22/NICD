@@ -1,0 +1,9 @@
+{
+  "runtime": "generation",
+  "arguments": {
+    "--all-interactions": "${OUTPUT_ROOT}/splits/all_interactions.jsonl",
+    "--item-text-dir": "${DATA_ROOT}/item_text",
+    "--embedding-dir": "${DATA_ROOT}/item_embeddings",
+    "--output": "${OUTPUT_ROOT}/teacher/sampled.jsonl"
+  }
+}
