@@ -355,8 +355,7 @@ otherwise runtime tests are skipped. These checks do not replace full GPU
 reproduction. Changes in evaluation order or hardware/software may prevent
 bitwise-identical retraining.
 
-## Acknowledgments and Licenses
+## Licenses
 
-The code organization follows [ThinkRec](https://github.com/Yu-Qi-hang/ThinkRec).
-See [Third-Party Notices](THIRD_PARTY_NOTICES.md) for upstream licenses;
-dataset and pretrained model licenses apply separately.
+See [Third-Party Notices](THIRD_PARTY_NOTICES.md) for third-party code and
+applicable licenses. Dataset and pretrained model licenses apply separately.
