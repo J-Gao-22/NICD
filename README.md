@@ -18,7 +18,7 @@ Recommendation pipelines and baselines for MovieLens-1M and Amazon Book.
 |   |-- book/
 |   |-- common/
 |   `-- LICENSES/upstream/
-|-- data/manifests/               # Fixed teacher-sample indices only
+|-- data/manifests/               # Sampled teacher-example indices
 `-- tests/
 ```
 
@@ -52,7 +52,7 @@ Baseline pickle frames must follow the preprocessing and ID conventions expected
 by the [ThinkRec dataset code](https://github.com/Yu-Qi-hang/ThinkRec/tree/main/dataset).
 
 Keep data, profiles, embeddings, weights, and outputs outside the repository.
-Only fixed teacher-sample indices are included under `data/manifests/`.
+Only sampled teacher-example indices are included under `data/manifests/`.
 Each mainline launcher uses three non-overlapping external directories:
 
 ```bash
@@ -133,7 +133,7 @@ cp "$OUTPUT_ROOT/mf/best_mf.pt" "$MODEL_ROOT/native_mf.pt"
 cp "$OUTPUT_ROOT/mf/best.pt" "$MODEL_ROOT/collaborative_mf.pth"
 ```
 
-### Fixed Teacher Samples
+### Sampling Teacher Examples
 
 Run with the corresponding dataset roots. These entries validate the included
 manifests against training interactions and reject mismatches:
